@@ -1,0 +1,31 @@
+<%-  include("../partials/header.ejs")%>
+
+<h1>Dino Search Form:</h1>
+
+<!--
+    /dinosaure?dinoFilter=whatever the user typed
+-->
+
+
+<form method="GET" action="/dinosaurs">
+    <label for="dinoSearch">Search:</label>
+
+    <input type="text" placeholder="search dino name..." name="dinoFilter"/>
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+    <% dinos.forEach((dino, i) => { %>
+        <li>
+            <%= dino.name %> is a  <%= dino.type %> <a href="/dinosaurs/<%= i %>">more info</a>
+            <form method="POST" action="/dinosaurs/<%= i %>/?_method=DELETE">
+                <input type="submit" value="Delete">
+            
+            </form>
+            <a href="/dinosaurs/edit/<%= i %>">Edit</a>
+        </li>
+    <% }) %>
+</ul>
+
+
+<%-  include("../partials/footer.ejs")%>

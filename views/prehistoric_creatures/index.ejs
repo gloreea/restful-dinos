@@ -1,0 +1,27 @@
+<%-  include("../partials/header.ejs")%>
+
+<h1>Prehistoric Creatures:</h1>
+
+
+<form method="GET" action="/">
+    <label for="creatureSearch">Search:</label>
+
+    <input type="text" placeholder="search prehistoric name..." name="creatureFilter"/>
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+    <% creatures.forEach((creature, i) => { %>
+        <li>
+            <%= creature.type %> <a href="/prehistoric_creatures/<%= i %>">more info</a>
+            <form method="POST" action="/prehistoric_creatures/<%= i %>/?_method=DELETE">
+                <input type="submit" value="Delete">
+            </form>
+            <a href="/prehistoric_creatures/edit/<%= i %>">Edit</a>
+
+        </li>
+    <% }) %>
+</ul>
+
+
+<%-  include("../partials/footer.ejs")%>

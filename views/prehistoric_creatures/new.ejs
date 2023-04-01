@@ -1,0 +1,18 @@
+<%- include("../partials/header.ejs") %>
+
+<h1>Create a new Creature:</h1>
+
+<form method="POST" action="/prehistoric_creatures">
+    
+    <label for="creatureName">Type:</label>
+    <input id="creatureName" type="text" name="type" placeholder="Creature type...."/>
+
+    <label for="imgUrl">Image Url:</label>
+    <input id="imgUrl" type="text" name="img_url" placeholder="creature image url...."/>
+
+    <!--- <input name="banana" /> -->
+
+    <button type="submit">Create Creature</button>
+</form>
+
+<%- include("../partials/footer.ejs") %>
